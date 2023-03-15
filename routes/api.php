@@ -17,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::prefix('admin/reports/wizard-stats')->group(function () {
+    Route::get('/estimators', 'Reports_WizardStatsController@getAll');
+    Route::get('/estimators/{id}', 'Reports_WizardStatsController@getById');
+    Route::post('/estimators', 'Reports_WizardStatsController@getById');
+    Route::put('/estimators/{id}', 'Reports_WizardStatsController@gcreate');
+    Route::delete('/estimators/{id}', 'Reports_WizardStatsController@gcreate');
+});
